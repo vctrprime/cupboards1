@@ -1,0 +1,28 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+@(Html.Kendo().Grid<Lasmart.Data.Models.Cupboard>()
+        .Name("grid")
+        .Columns(columns =>
+        {
+
+            columns.Bound(p => p.Name).Title("Название");
+            columns.Bound(p => p.Width).Title("Ширина");
+            columns.Bound(p => p.Height).Title("Высота");
+            columns.Bound(p => p.Depth).Title("Глубина");
+            columns.Bound(p => p.Image).Title("Фото").ClientTemplate("<img class='drag-image' width='50' height='50' src='" +
+                Url.Content("~/Content/images/") +
+                "#= Image #'>").Filterable(false);
+        })
+        .Filterable()
+        .Events(e => e.DataBound("gridDataBound"))
+        .HtmlAttributes(new { style = "height:47vh;" })
+        .DataSource(dataSource => dataSource
+        
+            .Ajax()
+            .ServerOperation(true)
+            .Read(read => read.Action("Cupboards_Read", "Home"))
+         )
+)
+<div id="container"></div>
