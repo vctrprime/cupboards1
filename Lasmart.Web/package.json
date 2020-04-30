@@ -12,7 +12,7 @@
     "@progress/kendo-theme-default": "^2.54.1",
     "@progress/kendo-ui": "2019.1.115",
     "css-loader": "^1.0.0",
-    "jquery": "^3.2.1",
+    "jquery": "^3.5.0",
     "konva": "^4.0.16",
     "popper.js": "^1.12.6",
     "style-loader": "^0.21.0"
